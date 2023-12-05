@@ -5,12 +5,12 @@ export const ToDoContext = createContext({
     toDoArray : [
         {
             id: 1001,
-            todo:"Todo Message",
+            toDo:"Todo Message",
             completed: false,
-        }
+        },
     ],
-    addToDo : (todo) => {},
-    updateToDo : (id,todo) => {},
+    addToDo : (toDo) => {},
+    updateToDo : (id,toDo) => {},
     deleteToDo : (id) => {},
     isComplete : (id)=>{}
 })
