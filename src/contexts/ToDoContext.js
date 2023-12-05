@@ -4,8 +4,8 @@ export const ToDoContext = createContext({
 
     toDoArray : [
         {
-            todo:"Todo Message",
             id: 1001,
+            todo:"Todo Message",
             completed: false,
         }
     ],

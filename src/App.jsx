@@ -3,7 +3,23 @@ import {ToDoContextProvider} from "./contexts"
 
 function App() {
 
-  const [toDos,setToDos] = useState([])
+  const [toDoArray,setToDoArray] = useState([])
+
+  const addToDo = (todo) => {
+    setToDoArray((prev)=>[{id:Date.now(),...todo},...prev]) 
+  }
+
+  const deleteToDo = (id) => {
+    setToDoArray((prev) => prev.filter((prevTodo) => prevTodo.id !== id))
+  }
+
+  const updateToDo = (id,todo) => {
+    setToDoArray((prev)=> prev.map((eachPrevTodo) => (eachPrevTodo.id === id ? todo :eachPrevTodo)))
+  }
+
+  const isComplete = (id) => {
+   setToDoArray((prev) => prev.map((prevTodo)=>(prevTodo.id === id ? {...prevTodo, completed: !prevTodo.completed} :prevTodo)))
+  }
 
   return (
     <ToDoContextProvider value={{toDoArray,updateToDo,deleteToDo,addToDo,isComplete}}>
